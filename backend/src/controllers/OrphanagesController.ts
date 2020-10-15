@@ -12,7 +12,7 @@ export default {
             return { path: image.filename}
         });
 
-        const data = { name, latitude, longitude, about, instructions, opening_hours, open_on_weekends, images };
+        const data = { name, latitude, longitude, about, instructions, opening_hours, open_on_weekends:open_on_weekends === 'true', images };
 
         const schema = Yup.object().shape({
             name: Yup.string().required('Nome é obrigatório'),
@@ -35,6 +35,7 @@ export default {
 
     async findAll(req: Request, res: Response) {
         const orphanages = await getRepository(Orphanage).find({relations: ['images']});
+        console.log(orphanages);
         return res.json(orphanageView.renderMany(orphanages));
     },
 
@@ -51,6 +52,9 @@ export default {
     async findById(req: Request, res: Response) {
         const { id } = req.params;
         const orphanage = await getRepository(Orphanage).findOneOrFail(id, {relations: ['images']});
+        console.log("------------------------");
+        console.log(orphanage);
+        console.log("------------------------");
         if (orphanage) {
             return res.json(orphanageView.render(orphanage));
         }

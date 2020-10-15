@@ -1,10 +1,16 @@
 import React from 'react';
-import './styles/global.css';
 import Routes from './routes';
+
+import './styles/global.css';
+import 'leaflet/dist/leaflet.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
-    <Routes/>
+    <>
+      <ToastContainer/>
+      <Routes/>
+    </>
   );
 }
 

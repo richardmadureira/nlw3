@@ -3,10 +3,21 @@
 # dependencies
 web/node_modules
 backend/node_modules
+mobile/node_modules
 backend/src/database/database.sqlite
 backend/uploads
 .pnp
 .pnp.js
+
+mobile/.expo/*
+mobile/npm-debug.*
+mobile/*.jks
+mobile/*.p8
+mobile/*.p12
+mobile/*.key
+mobile/*.mobileprovision
+mobile/*.orig.*
+mobile/web-build/
 
 # testing
 web/coverage
